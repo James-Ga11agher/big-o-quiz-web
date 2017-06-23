@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Big O Quiz's Web Client",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/James-Ga11agher/big-o-quiz-web.git"
+  },
   "scripts": {
     "lint": "eslint src servers",
     "build": "webpack",
