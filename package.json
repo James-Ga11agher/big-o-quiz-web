@@ -6,8 +6,9 @@
   "scripts": {
     "lint": "eslint src servers",
     "build": "webpack",
+    "unit" : "karma start",
     "e2e": "protractor .protractor.conf.js",
-    "test": "test",
+    "test": "npm run unit",
     "start-dev": "webpack-dev-server",
     "prestart": "babel-node servers/resources/startMessage.js",
     "start": "babel-node servers/srcServer.js"
