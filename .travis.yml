@@ -8,6 +8,7 @@ addons:
 
 before_script:
   - npm install
+  - npm install -g protractor@5.1.2; webdriver-manager update
 
 script:
   - npm test
