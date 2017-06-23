@@ -2,7 +2,7 @@
 // Generated on Thu Jun 22 2017 19:43:23 GMT+0100 (IST)
 
 module.exports = function(config) {
-  config.set({
+  var _config = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -59,11 +59,16 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
-
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromeHeadless'],
+    browsers: ['Chrome'],
 
+    customLaunchers: {
+        Chrome_travis_ci: {
+            base: 'ChromeHeadless',
+            flags: ['--no-sandbox']
+        }
+    },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -94,5 +99,11 @@ module.exports = function(config) {
     webpackServer: {
       noInfo: true
     },
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    _config.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(_config);
 };
