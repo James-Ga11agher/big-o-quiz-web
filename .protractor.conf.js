@@ -6,6 +6,13 @@ var screenshotReporter = new HtmlScreenshotReporter({
 });
 
 exports.config = {
+  capabilities : {
+    'browserName' : 'chrome',
+    'chromeOptions' : {
+      'args': ['--headless', '--disab;e-gpu']
+    }
+  },
+
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   //directConnect: true,
