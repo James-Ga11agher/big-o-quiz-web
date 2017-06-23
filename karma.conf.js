@@ -2,7 +2,7 @@
 // Generated on Thu Jun 22 2017 19:43:23 GMT+0100 (IST)
 
 module.exports = function(config) {
-  var _config = {
+  let _config = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -65,7 +65,7 @@ module.exports = function(config) {
 
     customLaunchers: {
         Chrome_travis_ci: {
-            base: 'ChromeHeadless',
+            base: 'Chrome',
             flags: ['--no-sandbox']
         }
     },
