@@ -37,6 +37,8 @@
   },
   "globals": {
     "expect": true,
-    "browser": true
+    "browser": true,
+    "element": true,
+    "by": true
   }
 }

@@ -14,9 +14,7 @@ exports.config = {
   },
 
   framework: 'jasmine',
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-  //directConnect: true,
-  specs: ['./tests/e2e/specs/spec.js'],
+  specs: ['./tests/e2e/index.js'],
 
   // Setup the report before any tests start
   beforeLaunch: function() {

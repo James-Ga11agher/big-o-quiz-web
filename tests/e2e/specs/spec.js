@@ -5,3 +5,11 @@ describe('Protractor Demo App', function() {
     expect(browser.getTitle()).toEqual('Super Calculator');
   });
 });
+
+describe('Landing Page', () => {
+  it('renders a h1 - Big O Quiz', () => {
+    browser.waitForAngularEnabled(false);
+    browser.get('http://localhost:3000/');
+    expect(element(by.css('h1')).getText()).toBe('Big O Quiz');
+  });
+});
