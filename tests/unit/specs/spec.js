@@ -1,7 +1,7 @@
-import chai from 'chai';
+import { expect } from 'chai';
 
 describe("A test", function() {
   it("is true", function() {
-    chai.expect(true).to.be.true;
+    expect(true).to.be.true;
   });
 });
