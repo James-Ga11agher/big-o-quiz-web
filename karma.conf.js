@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Thu Jun 22 2017 19:43:23 GMT+0100 (IST)
-
+/* eslint-disable no-var */
 module.exports = function(config) {
   var _config = {
 
@@ -15,31 +15,44 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'tests/unit/*.js'
-    ],
-
-
-    // list of files to exclude
-    exclude: [
+      'tests/unit/index.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'tests/unit/*.js': ['webpack', 'sourcemap']
+      'tests/unit/index.js': ['webpack', 'sourcemap']
+    },
+
+    webpack: {
+      devtool: 'inline-source-map',
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+          },
+          {
+            enforce: 'post',
+            test: /\.js$/,
+            loader: 'istanbul-instrumenter-loader',
+            include: /src/
+          }
+        ]
+      },
+      externals: {
+        'react/addons': 'react',
+        'react/lib/ExecutionEnvironment': 'react',
+        'react/lib/ReactContext': 'react',
+      }
     },
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['coverage'],
-
-    coverageReporter: {
-      type : 'html',
-      dir : 'tests/out/unit'
-    },
+    // list of files to exclude
+    exclude: [
+    ],
 
     // web server port
     port: 9876,
@@ -54,8 +67,18 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['coverage'],
+
+    coverageReporter: {
+      dir : 'tests/out/unit',
+      reporters: [{
+        type: 'html',
+        subdir: './coverage-html'
+      }]
+    },
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
@@ -68,6 +91,10 @@ module.exports = function(config) {
         }
     },
 
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: false,
+
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
@@ -75,24 +102,6 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-
-    webpack: {
-      devtool: 'inline-source-map',
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/
-          }
-        ]
-      },
-      externals: {
-        'react/addons': 'react',
-        'react/lib/ExecutionEnvironment': 'react',
-        'react/lib/ReactContext': 'react',
-      }
-    },
 
     webpackServer: {
       noInfo: true
