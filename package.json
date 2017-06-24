@@ -15,7 +15,7 @@
     "test": "npm run lint && npm run unit && npm run e2e",
     "start-dev": "webpack-dev-server",
     "prestart": "npm run build && babel-node servers/resources/startMessage.js",
-    "start-e2e": "npm run start & sleep 15",
+    "start-e2e": "npm run prestart && npm run start",
     "start": "babel-node servers/srcExpressServer.js"
   },
   "author": "James Gallagher",

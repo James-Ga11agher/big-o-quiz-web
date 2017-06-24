@@ -7,9 +7,10 @@ addons:
   chrome: stable
 
 before_script:
-  - npm install
-  - npm install -g protractor; webdriver-manager update
+  - npm install -g protractor
+  - webdriver-manager update
   - npm run start-e2e
+  - travis_wait 15
 
 script:
   - npm test
