@@ -15,7 +15,7 @@
     "test": "npm run lint && npm run unit && npm run e2e",
     "start-dev": "webpack-dev-server",
     "prestart": "babel-node servers/resources/startMessage.js",
-    "start": "babel-node servers/srcServer.js"
+    "start": "babel-node servers/srcExpressServer.js"
   },
   "author": "James Gallagher",
   "license": "ISC",
@@ -47,6 +47,7 @@
     "karma-chrome-launcher": "^2.1.1",
     "karma-cli": "^1.0.1",
     "karma-coverage-istanbul-reporter": "^1.3.0",
+    "karma-html-reporter": "^0.2.7",
     "karma-mocha": "^1.3.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
