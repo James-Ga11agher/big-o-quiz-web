@@ -8,11 +8,11 @@
     "url": "https://github.com/James-Ga11agher/big-o-quiz-web.git"
   },
   "scripts": {
-    "lint": "eslint src servers",
+    "lint": "eslint src servers tests/e2e tests/unit",
     "build": "webpack",
-    "unit" : "karma start",
+    "unit": "karma start",
     "e2e": "protractor .protractor.conf.js",
-    "test": "npm run unit && npm run e2e",
+    "test": "npm run lint && npm run unit && npm run e2e",
     "start-dev": "webpack-dev-server",
     "prestart": "babel-node servers/resources/startMessage.js",
     "start": "babel-node servers/srcServer.js"
@@ -24,6 +24,8 @@
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
     "redux-thunk": "^2.2.0"
   },
