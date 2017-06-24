@@ -43,6 +43,7 @@ module.exports = function(config) {
         ]
       },
       externals: {
+        cheerio: 'window',
         'react/addons': 'react',
         'react/lib/ExecutionEnvironment': 'react',
         'react/lib/ReactContext': 'react',
@@ -70,14 +71,10 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['coverage'],
-
-    coverageReporter: {
-      dir : 'tests/out/unit',
-      reporters: [{
-        type: 'html',
-        subdir: './coverage-html'
-      }]
+    reporters: ['progress', 'coverage-istanbul'],
+    coverageIstanbulReporter: {
+      dir: 'tests/out/unit/coverage',
+      reports: ['html', 'text-summary']
     },
 
     // start these browsers
@@ -85,15 +82,15 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     customLaunchers: {
-        Chrome_travis_ci: {
-            base: 'ChromeHeadless',
-            flags: ['--headless', '--disable-gpu']
-        }
+      Chrome_travis_ci: {
+        base: 'ChromeHeadless',
+        flags: ['--headless', '--disable-gpu']
+      }
     },
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
