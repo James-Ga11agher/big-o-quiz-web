@@ -4,9 +4,8 @@ const ReactDom = require('react-dom');
 
 /* eslint-disable no-console */
 console.log('Render App 3');
-/*
-ReactDom.render(
+
+!window.unitTesting && ReactDom.render(
   <App/>,
   document.getElementById('app')
 );
-*/

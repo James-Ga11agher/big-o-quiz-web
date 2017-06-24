@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'tests/unit/index.js'
+      'tests/unit/globals.js', 'tests/unit/index.js'
     ],
 
 
