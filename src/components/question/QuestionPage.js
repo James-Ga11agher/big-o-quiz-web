@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as pageActions from '../../actions/pageActions.js';
 
 class QuestionPage extends React.Component {
@@ -11,7 +12,7 @@ class QuestionPage extends React.Component {
   }
 
   onClickChangePage() {
-    this.props.dispatch(pageActions.changePage('RESULTS_PAGE'));
+    this.props.pageActions.changePage('RESULTS_PAGE');
   }
 
   render() {
@@ -29,7 +30,15 @@ class QuestionPage extends React.Component {
 }
 
 QuestionPage.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  pageActions: PropTypes.object.isRequired
 };
 
-export default connect()(QuestionPage);
+function mapStateToProps(state, ownProps) {}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    pageActions: bindActionCreators(pageActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionPage);
