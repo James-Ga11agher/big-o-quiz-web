@@ -33,7 +33,9 @@ QuestionPage.propTypes = {
   pageActions: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps) {}
+function mapStateToProps(state, ownProps) {
+  return {};
+}
 
 function mapDispatchToProps(dispatch) {
   return {

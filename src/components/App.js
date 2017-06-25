@@ -5,13 +5,17 @@ import QuestionPage from './question/QuestionPage';
 import ResultsPage from './results/ResultsPage';
 
 class App extends React.Component {
-  render() {
-    const pageToShow = this.props.currentPage === 'QUESTION_PAGE' ?
+
+  getPageToShow() {
+    return this.props.currentPage === 'QUESTION_PAGE' ?
         {component: <QuestionPage/>} : {component: <ResultsPage/>};
+  }
+
+  render() {
     return (
       <div>
         <h3>Overall App</h3>
-        {pageToShow.component}
+        {this.getPageToShow().component}
       </div>
     );
   }
