@@ -9,7 +9,7 @@ exports.config = {
   capabilities : {
     'browserName' : 'chrome',
     'chromeOptions' : {
-      'args': ['--headless', '--disab;e-gpu']
+      'args': ['--headless', '--disable-gpu']
     }
   },
 
