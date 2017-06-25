@@ -13,7 +13,7 @@
     "unit": "karma start",
     "e2e": "protractor .protractor.conf.js",
     "test": "npm run lint && npm run unit && npm run e2e",
-    "pretest-travis": "npm run start &",
+    "pretest-travis": "travis_wait 1 npm run start &",
     "test-travis": "npm run lint && npm run unit && npm run e2e",
     "start-dev": "webpack-dev-server",
     "prestart": "npm run build && babel-node servers/resources/startMessage.js",
@@ -22,6 +22,7 @@
   "author": "James Gallagher",
   "license": "ISC",
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",

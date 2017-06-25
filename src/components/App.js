@@ -1,15 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import QuestionPage from './question/QuestionPage';
+import ResultsPage from './results/ResultsPage';
 
 class App extends React.Component {
   render() {
+    const pageToShow = this.props.currentPage === 'QUESTION_PAGE' ?
+        {component: <QuestionPage/>} : {component: <ResultsPage/>};
     return (
       <div>
         <h3>Overall App</h3>
-        <QuestionPage/>
+        {pageToShow.component}
       </div>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  currentPage: PropTypes.string.isRequired
+};
+
+function mapStateToProps(state, ownProps) {
+  return {
+    currentPage: state.currentPage
+  };
+}
+
+export default connect(mapStateToProps)(App);

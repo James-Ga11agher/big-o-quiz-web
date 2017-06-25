@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuestionSVG = () => {
   return (
-    <svg></svg>
+    <svg />
   );
 };
 
