@@ -9,7 +9,6 @@ addons:
 before_script:
   - npm install -g protractor
   - webdriver-manager update
-  - travis_wait 1 npm run start-e2e
 
 script:
-  - npm test
+  - npm test-travis
