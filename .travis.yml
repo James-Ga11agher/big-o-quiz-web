@@ -11,4 +11,4 @@ before_script:
   - webdriver-manager update
 
 script:
-  - npm test-travis
+  - npm run test-travis
