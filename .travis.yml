@@ -11,4 +11,4 @@ before_script:
   - webdriver-manager update --gecko false
 
 script:
-  - npm run test-travis
+  - npm run test:travis

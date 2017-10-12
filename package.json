@@ -9,15 +9,18 @@
   },
   "scripts": {
     "lint": "eslint src servers tests/e2e tests/unit",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack -p",
+    "build:dev": "webpack",
     "unit": "karma start",
     "e2e": "protractor .protractor.conf.js",
     "test": "npm run lint && npm run unit && npm run e2e",
-    "pretest-travis": "npm run start &",
-    "test-travis": "npm run lint && npm run unit && npm run e2e",
-    "start-dev": "webpack-dev-server",
+    "test:travis": "npm run test",
+    "pretest:travis": "npm run start:dev &",
+    "start": "babel-node servers/srcExpressServer.js",
     "prestart": "npm run build && babel-node servers/resources/startMessage.js",
-    "start": "babel-node servers/srcExpressServer.js"
+    "start:dev": "webpack-dev-server",
+    "start:express:dev": "babel-node servers/srcExpressServer.js",
+    "prestart:express:dev": "npm run build:dev && babel-node servers/resources/startMessage.js"
   },
   "author": "James Gallagher",
   "license": "ISC",

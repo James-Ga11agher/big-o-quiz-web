@@ -9,7 +9,7 @@ describe('Protractor Demo App', function() {
 describe('Landing Page', () => {
   it('renders a h1 - Big O Quiz', () => {
     browser.waitForAngularEnabled(false);
-    browser.get('http://localhost:3000/');
+    browser.get('http://localhost:8080/');
     expect(element(by.css('h1')).getText()).toBe('Big O Quiz');
   });
 });
